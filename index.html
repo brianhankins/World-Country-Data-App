@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html data-ng-app="wc">
+
+  <head>
+    <script data-require="jquery@*" data-semver="2.1.4" src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <script data-require="bootstrap@*" data-semver="3.3.6" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.8/angular.js" data-semver="1.4.8" data-require="angular.js@*"></script>
+    <link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://bootswatch.com/cyborg/bootstrap.min.css" />
+    <script src="script.js"></script>
+  </head>
+  
+  <body data-ng-controller="wcController">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12">
+          <h1><span class="glyphicon glyphicon-globe hidden-xs" style="color: #4d94ff"></span> World County Data</h1>
+        </div>
+      </div>
+        <div class="col-sm-9">
+          <img class="img-responsive" src="http://www.slspencer.com/Graphics/Space/wallpaper-49680.jpg" />
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="form-group has-feedback">
+          <input type="text" data-ng-model="search" class="form-control" id="search" placeholder="Search" />
+          <i class="glyphicon glyphicon-search form-control-feedback"></i>
+          <h6>Search results for... {{search}}</h6>
+        </div>
+        <table class="table table-striped table-hover">
+          <tbody>
+            <tr>
+              <th>Country</th>
+              <th>Continent</th>
+              <th>Population</th>
+            </tr>
+            <tr data-ng-repeat="item in data | filter:search">
+              <td>{{item.countryName}}</td>
+              <td>{{item.continent}}</td>
+              <td>{{item.population}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </body>
+
+</html>
